@@ -1,0 +1,35 @@
+<app-navbar></app-navbar>
+<img src="{{cocktail.imageUrl}}" alt="{{cocktail.title}}" class="header-image">
+<div class="container">
+  <div class="row w-100 d-flex justify-content-end">
+    <button class="btn btn-danger" (click)="deleteCocktail()">Delete</button>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <div class="col-6">
+      <h1 class="text-center">{{cocktail.title}}</h1>
+      <p class="text-center">{{cocktail.description}}</p>
+    </div>
+  </div>
+  <div class="main">
+    <div class="row d-flex justify-content-center">
+      <div class="col-4 text-center">
+        <h3>Ingredients</h3>
+        <div *ngFor="let ingredient of cocktail.ingredients">
+          {{ingredient.amount}} - {{ingredient.name}}
+        </div>
+      </div>
+      <div class="col-6">
+        <h3 class="text-center">Instructions</h3>
+        <ol>
+          <li *ngFor="let instruction of cocktail.instructions">
+            {{instruction}}
+          </li>
+        </ol>
+      </div>
+    </div>
+    <div class="row back-and-edit d-flex justify-content-center">
+      <button class="btn btn-primary" (click)="back()">Back</button>
+      <button class="btn btn-primary" routerLink="/cocktails/edit/{{cocktail.id}}">Edit</button>
+    </div>
+  </div>
+</div>
