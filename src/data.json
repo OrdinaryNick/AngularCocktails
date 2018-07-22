@@ -1,0 +1,91 @@
+{
+  "cocktails": [
+    {
+      "id": 1,
+      "title": "Best cocktail",
+      "description": "This is a recipe for the best cocktail. It has lots of vodka and rum.",
+      "imageUrl": "assets/red.jpg",
+      "ingredients": [
+        {
+          "amount": "1 shot",
+          "name": "vodka"
+        },
+        {
+          "amount": "2 shots",
+          "name": "rum"
+        },
+        {
+          "amount": "300 ml",
+          "name": "tonic"
+        }
+      ],
+      "instructions": [
+        "Prepare shots.",
+        "Added shots to glass.",
+        "Shake it.",
+        "Add tonic a gently shake it."
+      ]
+    },
+    {
+      "id": 2,
+      "title": "White strong cocktail",
+      "description": "The strongest cocktail, which is white and has too many alcohol. This cocktail thought me very nice girl on endless night.",
+      "imageUrl": "assets/white.jpg",
+      "ingredients": [
+        {
+          "amount": "3 shot",
+          "name": "vodka"
+        },
+        {
+          "amount": "2 shots",
+          "name": "rum"
+        },
+        {
+          "amount": "1 shot",
+          "name": "gin"
+        },
+        {
+          "amount": "200 ml",
+          "name": "coca-cola"
+        }
+      ],
+      "instructions": [
+        "Add gin to coca-cola",
+        "Shake it.",
+        "Add rum to glass and shake it.",
+        "Add vodka to glass and shake it."
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Sun vodka",
+      "description": "Orange juice with apple and vodka.",
+      "imageUrl": "assets/orange.jpg",
+      "ingredients": [
+        {
+          "amount": "3 shots",
+          "name": "vodka"
+        },
+        {
+          "amount": "150 ml",
+          "name": "Orange juice"
+        },
+        {
+          "amount": "150 ml",
+          "name": "Apple juice"
+        },
+        {
+          "amount": "1 tablespoon",
+          "name": "Cinnamon"
+        }
+      ],
+      "instructions": [
+        "Add one shot to orange juice.",
+        "Add one shot to apple juice.",
+        "Mix juices together.",
+        "Add last shot of vodka.",
+        "Gently shake it together."
+      ]
+    }
+  ]
+}
