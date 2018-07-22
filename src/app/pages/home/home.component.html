@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">Cocktails & More</h1>
+    <div clas="d-flex justify-content-center">
+      <p class="lead w-66">
+        A collection of our favourite cocktails cocktails and more!
+      </p>
+    </div>
+    <p>
+      <a routerLink="/cocktails/new" class="btn btn-primary">Add New Cocktail</a>
+    </p>
+  </div>
+</section>
+<section class="container">
+  <div class="row">
+    <ng-container *ngFor="let cocktail of cocktailService.getCocktails()">
+      <div class="col d-flex justify-content-center">
+        <div class="card">
+           <!--[src] means that here can be javascript-->
+          <img class="card-img-top" [src]="cocktail.imageUrl" alt="{{cocktail.title}}">
+          <div class="card-body">
+            <h5 class="card-title">{{cocktail.title}}</h5>
+            <p class="card-text">{{cocktail.description}}</p>
+            <a routerLink="/cocktails/{{cocktail.id}}"  class="btn btn-primary">View</a>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</section>
