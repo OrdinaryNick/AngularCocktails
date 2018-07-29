@@ -57,7 +57,7 @@ export class CocktailService {
     }
   }
 
-  private getNextId(): Number {
+  private getNextId(): number {
     const max = _.maxBy(this.cocktails, (cocktail) => cocktail.id);
     return max + 1;
   }

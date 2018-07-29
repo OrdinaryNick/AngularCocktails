@@ -1,4 +1,109 @@
 <app-navbar></app-navbar>
-<p>
-  new-cocktail works!
-</p>
+
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-1"></div>
+    <div class="col-6">
+      <h1 class="text-center">New Cocktail</h1>
+    </div>
+  </div>
+
+  <form [formGroup]="cocktailForm" novalidate>
+    <div class="row">
+      <div class="form-group w-100 title d-flex justify-content-center">
+        <div class="col-2 d-flex justify-content-end align-items-center">
+          <label class="mb-0"><h4 class="mb-0">Title: </h4></label>
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control w-100" placeholder="Title..." formControlName="title">
+        </div>
+        <div class="col-1"></div>
+      </div>
+      <div class="form-group w-100 title d-flex justify-content-center">
+        <div class="col-2 d-flex justify-content-end align-items-center">
+          <label class="mb-0"><h4 class="mb-0">Description: </h4></label>
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control w-100" placeholder="Description..." formControlName="description">
+        </div>
+        <div class="col-1"></div>
+      </div>
+      <div class="form-group w-100 title d-flex justify-content-center">
+        <div class="col-2 d-flex justify-content-end align-items-center">
+          <label class="mb-0"><h4 class="mb-0">Image Link: </h4></label>
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control w-100" placeholder="Image Url..." formControlName="imageUrl">
+        </div>
+        <div class="col-1"></div>
+      </div>
+    </div>
+
+    <div formArrayName="instructions">
+      <div class="row d-flex justify-content-center">
+        <div class="col-1"></div>
+        <div class="col-6">
+          <h2 class="text-center">Instructions</h2>
+        </div>
+      </div>
+      <div *ngFor="let control of cocktailForm.get('instructions').controls; let i = index">
+        <div [formGroupName]="i" class="form-group w-100 title d-flex justify-content-center">
+          <div class="col-2 d-flex justify-content-end align-item-center">
+            <label class="mb-0"><h4 class="mb-0">{{i+1}}:</h4></label>
+          </div>
+          <div class="col-6 d-flex align-items-center">
+            <input type="text" class="form-control w-100" placeholder="add an instruction..." formControlName="step">
+          </div>
+          <div class="col-1 d-flex align-items-center">
+            <button class="btn btn-danger" (click)="deleteInstruction(i)">Delete</button>
+          </div>
+        </div>
+      </div>
+      <div class="w-100 d-flex justify-content-center">
+        <div class="col-1"></div>
+        <div class="col-6">
+          <button class="btn btn-success w-100" (click)="addInstruction()">Add</button>
+        </div>
+      </div>
+    </div>
+
+    <div formArrayName="ingredients">
+      <div class="row d-flex justify-content-center">
+        <div class="col-1"></div>
+        <div class="col-6">
+          <h2 class="text-center">Ingredients</h2>
+        </div>
+      </div>
+      <div *ngFor="let control of cocktailForm.get('ingredients').controls; let i = index">
+        <div [formGroupName]="i" class="form-group w-100 title d-flex justify-content-center">
+          <div class="col-2 d-flex justify-content-end align-item-center">
+            <label class="mb-0"><h4 class="mb-0">{{i+1}}:</h4></label>
+          </div>
+          <div class="col-3">
+            <input type="text" class="form-control w-100" placeholder="Amount..." formControlName="amount">
+          </div>
+          <div class="col-3">
+            <input type="text" class="form-control w-100" placeholder="Name..." formControlName="name">
+          </div>
+          <div class="col-1 d-flex align-items-center">
+            <button class="btn btn-danger" (click)="deleteIngredient(i)">Delete</button>
+          </div>
+        </div>
+      </div>
+      <div class="w-100 d-flex justify-content-center">
+        <div class="col-1"></div>
+        <div class="col-6">
+          <button class="btn btn-success w-100" (click)="addIngredient()">Add</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row d-flex justify-content-center back-and-save">
+      <div class="col-1"></div>
+      <div class="col-6 d-flex justify-content-center">
+        <button class="btn btn-primary" (click)="back()">Back</button>
+        <button class="btn btn-primary-" (click)="submitForm()">Save</button>
+      </div>
+    </div>
+  </form>
+</div>
