@@ -3,6 +3,14 @@ Simple application for operating with recipes of cocktails. It is programmed in 
 
 The application provides CRUD operations over recipes of cocktails. 
 
+# How to run
+1. Generate production distribution.
+```ng build --prod```
+2. Build docker image
+```docker build -t ordinarynick/angular-cocktails .```
+3. Run docker image
+```docker run -p 80:80 -d ordinarynick/angular-cocktails```
+
 # Project goal
 - Learn programming in Angular 6 
 - Using Bootstrap 4+

@@ -110,4 +110,12 @@ export class NewCocktailComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.subscriptions.forEach((subscription) => subscription.unsubscribe());
   }
+
+  getInstructionsForm(): FormArray {
+    return <FormArray>this.cocktailForm.get('instructions');
+  }
+
+  getIngredientsForm(): FormArray {
+    return <FormArray>this.cocktailForm.get('ingredients');
+  }
 }

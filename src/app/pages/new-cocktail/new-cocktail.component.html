@@ -46,7 +46,7 @@
           <h2 class="text-center">Instructions</h2>
         </div>
       </div>
-      <div *ngFor="let control of cocktailForm.get('instructions').controls; let i = index">
+      <div *ngFor="let control of getInstructionsForm().controls; let i = index">
         <div [formGroupName]="i" class="form-group w-100 title d-flex justify-content-center">
           <div class="col-2 d-flex justify-content-end align-item-center">
             <label class="mb-0"><h4 class="mb-0">{{i+1}}:</h4></label>
@@ -74,7 +74,7 @@
           <h2 class="text-center">Ingredients</h2>
         </div>
       </div>
-      <div *ngFor="let control of cocktailForm.get('ingredients').controls; let i = index">
+      <div *ngFor="let control of getIngredientsForm().controls; let i = index">
         <div [formGroupName]="i" class="form-group w-100 title d-flex justify-content-center">
           <div class="col-2 d-flex justify-content-end align-item-center">
             <label class="mb-0"><h4 class="mb-0">{{i+1}}:</h4></label>
