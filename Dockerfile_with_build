@@ -1,0 +1,35 @@
+#==================== Building Stage ================================================ 
+# Create the image based on the official Node 8.9.0 image from Dockerhub
+FROM node:10.9.0-alpine as node
+
+# Argument for base_href
+ARG base_href=/
+
+# Create a directory where our app will be placed. This might not be necessary
+RUN mkdir -p /cocktails
+
+# Change directory so that our commands run inside this new directory
+WORKDIR /cocktails
+
+# Copy dependency definitions
+COPY package.json /cocktails
+
+# Install dependencies using npm
+RUN npm install
+
+# Get all the code needed to run the app
+COPY . /cocktails
+
+# Expose the port the app runs in
+EXPOSE 80
+
+#Build the app
+RUN npm run ng -- build --base-href ${base_href}
+
+#==================== Setting up stage ==================== 
+# Create image based on the official nginx - Alpine image
+FROM nginx:stable-alpine
+
+COPY --from=node /cocktails/dist/ /usr/share/nginx/html
+RUN chmod +r -R /usr/share/nginx/html
+
